@@ -1,0 +1,162 @@
+body {
+    background: #FAF7F0;
+}
+
+nav {
+    position: relative; /* Create a positioning context */
+}
+
+nav h1 {
+    color: #000;
+    margin: 0;
+    padding-left: 5px;
+    padding-top: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative; /* Ensure ::after is positioned relative to h1 */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 3px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 10px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav h1:hover {
+    color: black;
+    width: 12%;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    transform: translateY(-2px);  
+}
+
+/* Fix the hover underline animation for h1 */
+nav h1::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+nav li:hover {
+    color: black;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    transform: translateY(-2px);
+}
+
+nav li:hover::after {
+    width: 100%;
+    height: 2px;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+nav li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+div {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.projects, .exp, .education {
+    flex-grow: 1;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    min-width: 150px;
+}
+
+h2 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .box {
+        flex-direction: column; /* Stack elements vertically */
+    }
+    
+    .projects, .exp, .education {
+        width: 100%; /* Each box takes full width */
+        margin: 10px 0; /* Adjust margin for vertical stack */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Adds space between menu items */
+    }
+}
+
+/* For devices with screen width 480px or less (like smartphones) */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav h1 {
+        margin-bottom: 10px; /* Adds space between title and menu */
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px; /* Smaller font size for h2 */
+    }
+
+    .projects, .exp, .education {
+        padding: 10px;
+    }
+}
